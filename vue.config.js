@@ -24,7 +24,7 @@ module.exports = {
    * In most cases please use '/' !!!
    * Detail: https://cli.vuejs.org/config/#publicpath
    */
-  publicPath: '/',
+  publicPath: './',
   outputDir: 'dist',
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
@@ -36,9 +36,21 @@ module.exports = {
     overlay: {
       warnings: false,
       errors: true
-    }
+    },
     // 在开发环境启动运行前，先加载什么，开发环境使用mock
     // before: require('./mock/mock-server.js')
+    // 环境配置 proxy 代理解决跨域问题
+    proxy: {
+      '/xxx': {
+        target: 'http://localhost:3000/api',
+        pathRewrite: {
+          // 当使用代理时，它会去调用真实接口基地址值，它内部会做一个拼接
+          // 拼接方式：真实接口基地址+'/xxx',
+          // 实际没有/xxx,我们需要去掉/xxx
+          '^/xxx': ''
+        }
+      }
+    }
   },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that
