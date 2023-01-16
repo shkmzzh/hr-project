@@ -8,6 +8,6 @@ export default {}
 
 <style lang="scss" scoped>
 .login {
-  background-image: url('~/');
+  background-image: url('~');
 }
 </style>
