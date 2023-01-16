@@ -12,7 +12,6 @@ export default {
   actions: {
     async toLogin({ commit }, val) {
       const res = await sysLogin(val)
-      console.log(3)
       console.log(res)
       commit('setUserToken', res.data)
     }

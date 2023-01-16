@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import { Message } from 'element-ui'
 // create an axios instance
 const service = axios.create({
   baseURL: process.env.VUE_APP_URL, // url = base url + request url
@@ -24,7 +24,12 @@ service.interceptors.response.use(
   function (response) {
     // 2xx 范围内的状态码都会触发该函数。
     // 对响应数据做点什么
-    return response.data
+    if (response.data.success) {
+      return response.data
+    } else {
+      Message.error(response.data.message)
+      return Promise.reject(new Error(response.data.message))
+    }
   },
   function (error) {
     // 超出 2xx 范围的状态码都会触发该函数。

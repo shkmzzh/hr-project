@@ -56,15 +56,12 @@ export default {
           // 考虑到登录接口可能多个页面要用到，所以放到vuex中管理
           // const res = await sysLogin(this.form)
           // this.$store.commit('user/setUserToken', res.data)
-          console.log(1)
           try {
             await this.$store.dispatch('user/toLogin', this.form)
-            console.log(2)
             this.$message.success('登录成功')
             this.$router.push('/dashboard')
           } catch (error) {
             this.loading = false
-            this.$message.error('失败')
             console.log(error)
           }
         }
