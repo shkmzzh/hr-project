@@ -1,11 +1,14 @@
 import router from './router'
 import store from './store'
 const pageList = ['/login', '/404']
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
   if (store.state.user.token) {
     if (to.path.toLowerCase() == '/login') {
       next('/')
     } else {
+      if (!store.state.user.userInfo.userId) {
+        await store.dispatch('user/getUserInfo')
+      }
       next()
     }
   } else {

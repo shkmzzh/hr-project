@@ -15,6 +15,7 @@ import router from './router'
 
 import '@/icons' //  导入icon
 import '@/permission' // 导入守卫
+import '@/directives' // 导入自定义指令
 
 /**
  * If you don't want to use mock-server

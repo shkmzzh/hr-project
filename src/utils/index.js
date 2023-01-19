@@ -33,7 +33,7 @@ export function parseTime(time, cFormat) {
     }
     date = new Date(time)
   }
-  const formatObj = {
+   const formatObj = {
     y: date.getFullYear(),
     m: date.getMonth() + 1,
     d: date.getDate(),

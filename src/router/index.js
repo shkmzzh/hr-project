@@ -52,7 +52,113 @@ export const constantRoutes = [
         path: 'dashboard',
         name: 'Dashboard',
         component: () => import('@/views/dashboard/index'),
-        meta: { title: 'Dashboard', icon: 'dashboard' }
+        meta: { title: '首页', icon: 'dashboard' }
+      }
+    ]
+  },
+
+  {
+    path: '/departments',
+    component: Layout,
+    meta: {
+      name: 'departments'
+    },
+    children: [
+      {
+        path: '',
+        name: 'Departments',
+        component: () => import('@/views/departments/index'),
+        meta: { title: '组织架构', icon: 'tree' }
+      }
+    ]
+  },
+  {
+    path: '/employees',
+    component: Layout,
+    children: [
+      {
+        path: '',
+        name: 'Employees',
+        component: () => import('@/views/employees/index'),
+        meta: { title: '员工', icon: 'people' }
+      }
+    ]
+  },
+  {
+    path: '/setting',
+    component: Layout,
+    meta: { name: 'settings' },
+    children: [
+      {
+        path: '',
+        name: 'Setting',
+        component: () => import('@/views/setting/index'),
+        meta: { title: '公司设置', icon: 'setting' }
+      }
+    ]
+  },
+  {
+    path: '/permission',
+    component: Layout,
+    meta: { name: 'permissions' },
+    children: [
+      {
+        path: '',
+        name: 'Permission',
+        component: () => import('@/views/permission/index'),
+        meta: { title: '权限设置', icon: 'lock' }
+      }
+    ]
+  },
+  {
+    path: '/social',
+    component: Layout,
+    meta: { name: 'social_securitys' },
+    children: [
+      {
+        path: '',
+        name: 'Social',
+        component: () => import('@/views/social/index'),
+        meta: { title: '社保', icon: 'table' }
+      }
+    ]
+  },
+  {
+    path: '/attendances',
+    component: Layout,
+    meta: { name: 'attendances' },
+    children: [
+      {
+        path: '',
+        name: 'Attendances',
+        component: () => import('@/views/attendances/index'),
+        meta: { title: '考勤', icon: 'skill' }
+      }
+    ]
+  },
+  {
+    path: '/salarys',
+    component: Layout,
+    meta: { name: 'salarys' },
+    children: [
+      {
+        path: '',
+        name: 'Salarys',
+        component: () => import('@/views/salarys/index'),
+        meta: { title: '工资', icon: 'money' }
+      }
+    ]
+  },
+  {
+    path: '/approvals',
+    component: Layout,
+    meta: { name: 'approvals' },
+    children: [
+      {
+        path: '',
+        name: 'Approvals',
+        component: () => import('@/views/approvals/index'),
+        meta: { title: '审批', icon: 'tree-table' }
       }
     ]
   },
