@@ -20,7 +20,7 @@ const store = new Vuex.Store({
       // 模块名.属性名：只持久化该属性
       // 模块名：整个模块的所有数据都持久化
       // 不配制该参数paths,默认是所有vuex数据都持久化
-      paths: ['user.token']
+      paths: ['user.token', 'app.sidebar.opened']
     })
   ]
 })
